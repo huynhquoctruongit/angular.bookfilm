@@ -1,0 +1,178 @@
+
+<div class="wrapper">
+  <div class="content">
+    <div id="main">
+      <div class="menu">
+        <div class="nav-datve">
+          <div class="row container m-auto">
+            <div class="col-md-9 text-center">
+              <div class="row ">
+                <div class="col-md-4 py-2" id="chonghe-menu">01 Chọn ghế</div>
+                <div class="col-md-4 py-2" id="chonghe-menu2">02 Thanh toán</div>
+                <div class="col-md-4 py-2">03 Kết quả đặt vé</div>
+              </div>
+            </div>
+            <div class="col-md-3 text-center py-2">
+            <div class="icon-person">
+              <i class="fa fa-user-circle"></i>
+              <span class="hello-user ml-2">Hi.</span>
+              <span class="user-name px-1">{{nameUser.HoTen}} !</span>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="img">
+            <img
+              [src]="chiTietPhim.HinhAnh"
+              class="d-block m-auto"
+              width="300px"
+              height="577px"
+            />
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="container px-5">
+            <div class="screen py-4 d-flex m-auto">
+              <img
+                class=""
+                src="https://www.123phim.vn/app/assets/img/icons/screen.png"
+              />
+            </div>
+            <div class="ghe-ngoi m-auto">
+              <span class="" *ngFor="let item of lichChieu.DanhSachGhe">
+                <app-item-ghe
+                  [ListGhe]="item"
+                  (emitStatus)="datGheParent($event)"
+                ></app-item-ghe>
+              </span>
+            </div>
+            <!-- chu thich ghe -->
+            <div class="chuthich-ghe m-auto text-center py-5">
+              <button height="13px" class="btn btn-light ghetrong mr-2"></button><span class="mr-4">Ghế trống</span>
+              <button height="13px" class="btn btn-danger ghedangchon mr-2"></button><span class="mr-4">Ghế đang chọn</span>
+              <button height="13px"class="btn ghedaconguoichon mr-2"></button><span class="mr-4">Ghế đã có người chọn</span>
+              <button height="13px" class="btn btn-success ghedoi mr-2"></button><span class="mr-4">Ghế đôi</span>
+              <button height="13px" class="btn btn-warning ghevip mr-2"></button><span class="mr-4">Ghế VIP</span>
+            </div>
+            <!-- Time Countdown -->
+            <div class="text-center" id="thoigiandat"></div>
+            <!-- btn Thanh toan -->
+            <span
+              class="ml-auto btn btn-danger"
+              id="thanhtoan-btn"
+              (click)="openNav()"
+              >Thanh toán</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide nav. -->
+    <div id="mySidenav" class="sidenav">
+      <p href="#" class="closebtn" (click)="closeNav()">&times;</p>
+      <h6 class="">Phiếu thanh toán</h6>
+      <div class="film-info p-4">
+        <p class="tenphim">{{ chiTietPhim.TenPhim }}</p>
+        <p>Galaxy Cinema</p>
+        <!-- Button to Open the Modal -->
+        <button
+          type="button"
+          class="my-1 btn btn-light"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          Compo bắp nước<span class="badge text-white badge-dark mx-2 p-1">{{soluong}}</span>
+        </button>
+        <p class="format-text">
+          Số ghế: <span class="soghe">{{ soGheDaDat }}</span>
+        </p>
+        <span class="format-text">Vị trí ghế: </span>
+        <div class="content-ghe text-center">
+          <span class="content-item" *ngFor="let item of listGheDaDat">
+            <span class=" pr-2 tenghe-info">{{ item.TenGhe }}</span>
+          </span>
+        </div>
+        <div class="method-tt">
+          <div class="card">
+            <p>Phương thức thanh toán</p>
+            
+            <ul>
+              <li>
+                <input type="radio" name="name" id="one" checked />
+                <label for="one">Tại rạp</label>
+                
+                <div class="check"></div>
+              </li>
+              
+              <li>
+                <input type="radio" name="name" id="two" />
+                <label for="two">Thẻ tín dụng</label>
+                
+                <div class="check"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tongtien m-3">
+        <p>{{ listGheDaDat.GiaVe }}</p>
+        <p class="tinhtien">{{ tinhTien }} đ</p>
+        <button class="mr-3 btn btn-danger btn-xacnhan" id="disabled" (click)="disabledThanhToan()">Thanh toán</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Đặt bắp nước</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Combo</th>
+                  <th>Giá</th>
+                  <th>Số lượng</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of compoBapNuoc">
+                  <td>{{item.tenCombo}}</td>
+                  <td>{{item.gia}}</td>
+                  <td><span class="mr-3">{{soluong}}</span></td>
+                  <td class="icon-bapnuoc">
+                    <i (click)="giamtien()" class="fa fa-minus-circle mr-2"></i>
+                    <i (click)="tangtien()" class="fa fa-plus-circle"></i>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+      </div>
+      <!-- Chay ham gui email sau khi dat ve thanh cong -->
+       
+      <!--  -->
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

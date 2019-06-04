@@ -1,0 +1,318 @@
+
+<div class="head">
+    
+ <div class="row">
+         <div class="content-user d-inline-block">
+        <div class="dropdown px-2">
+          <i class="dropbtn fab fa-facebook-messenger"></i>
+          <div class="dropdown-content">
+            <a href="#" class="mess">
+              <i class="fas fa-circle pr-2 icon-read"></i>Lorem ipsum dolor sit amet consectetur.
+            </a>
+            <a href="#" class="mess">
+              <i class="far fa-circle pr-2 icon-read"></i>New messenger from admin !
+            </a>
+            <a href="#" class="mess">
+              <i class="far fa-circle pr-2 icon-read"></i>Some thing new.
+            </a>
+          </div>
+        </div>
+        <div class="dropdown pl-2">
+            <i class="fas fa-user text-light"></i>
+          <span class="hi-admin ml-2 ">Hi ! {{infoUser.HoTen}}</span>
+          <div class="dropdown-content text-center">
+            <a href="#" class="mess" data-toggle="modal"  data-target=".bd-example-modal-lg">
+              <span>Đăng nhập / Đăng ký</span>
+            </a>
+            <a href="#" class="mess" data-toggle="modal"  data-target=".bd-example-modal-lg">
+              <span>Đăng nhập / Đăng ký</span>
+            </a>
+            <a href="#" class="mess" data-toggle="modal"  data-target=".bd-example-modal-lg1">
+              <span>Lịch sử đặt vé</span>
+            </a>
+            <a (click)="logOut()" class="mess">
+              <span>Đăng xuất</span>
+            </a>
+        </div>
+      </div>
+   </div>
+
+    <div
+      class="modal fade bd-example-modal-lg"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myLargeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content p-5">
+          <div class="container">
+             
+            <h2 class="text-center">Đăng nhập | Đăng ký</h2>
+            <br />
+            <!-- Nav pills -->
+            <ul class="nav nav-pills" role="tablist">
+              <li class="nav-item">
+                <p class="nav-link  active tltle-acount" data-toggle="pill" href="#home"
+                  >Đăng nhập</p
+                >
+              </li>
+              <li class="nav-item">
+                <p class="nav-link tltle-acount" data-toggle="pill" href="#menu1">Đăng ký</p>
+              </li>
+            </ul>
+  
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div id="home" class="container tab-pane active">
+                <br />
+                <h3 class="text-center pb-4">Đăng nhập</h3>
+                <form #formDN="ngForm" (ngSubmit)="dangNhap(formDN)">
+                    <div class="form-group">
+                        <label for="email">Tên tài khoản</label>
+                        <input minlength="8" maxlength="20" #taiKhoanDN="ngModel" required ngModel name="TaiKhoan" type="email" class="form-control"/>
+                        <!-- bat loi Ten TK -->
+                        <div *ngIf="taiKhoanDN.errors && (taiKhoanDN.touched || taiKhoanDN.dirty ) ">
+                          <div class="alert alert-danger" *ngIf="taiKhoanDN.errors.required">
+                            * Vui lòng nhập tài khoản
+                          </div>
+                          <div class="alert alert-danger" *ngIf="taiKhoanDN.errors.minlength">
+                            * Tài khoản phải có ít nhất 8 kí tự
+                          </div>
+                        </div>
+                        <!--  -->
+                      </div> 
+                    <div class="form-group">
+                        <label for="pwd">Mật khẩu</label>
+                        <input minlength="1" maxlength="20" #matKhauDN="ngModel" required ngModel name="MatKhau" type="password" class="form-control"/>
+                        <div *ngIf="matKhauDN.errors && (matKhauDN.touched || matKhauDN.dirty ) ">
+                          <div class="alert alert-danger" *ngIf="matKhauDN.errors.required">
+                            * Vui lòng nhập mật khẩu
+                          </div>
+                          <div class="alert alert-danger" *ngIf="matKhauDN.errors.minlength">
+                            * Mật khẩu phải có ít nhất 6 kí tự
+                          </div>
+                        </div>
+                      </div> 
+                  <button type="submit"  [disabled]="formDN.invalid" class="btn btntabdn">Đăng nhập</button>
+                </form>
+              </div>
+              <div id="menu1" class="container tab-pane fade">
+                <br />
+                <h3 class="text-center pb-4">Đăng ký</h3>
+                <form #formDK="ngForm" (ngSubmit)="dangKy(formDK)">
+                  <div class="form-group">
+                    <label for="email">Tên tài khoản</label>
+                    <input minlength="8" maxlength="20" #taiKhoan="ngModel" required ngModel name="TaiKhoan" type="email" class="form-control"/>
+                    <!-- bat loi Ten TK -->
+                    <div *ngIf="taiKhoan.errors && (taiKhoan.touched || taiKhoan.dirty ) ">
+                      <div class="alert alert-danger" *ngIf="taiKhoan.errors.required">
+                        * Vui lòng nhập tài khoản
+                      </div>
+                      <div class="alert alert-danger" *ngIf="taiKhoan.errors.minlength">
+                        * Tài khoản phải có ít nhất 8 kí tự
+                      </div>
+                    </div>
+                    <!--  -->
+                  </div> 
+                  <div class="form-group">
+                    <label for="pwd">Mật khẩu</label>
+                    <input minlength="6" maxlength="20" #matKhau="ngModel" required ngModel name="MatKhau" type="password" class="form-control"/>
+                    <div *ngIf="matKhau.errors && (matKhau.touched || matKhau.dirty ) ">
+                      <div class="alert alert-danger" *ngIf="matKhau.errors.required">
+                        * Vui lòng nhập mật khẩu
+                      </div>
+                      <div class="alert alert-danger" *ngIf="matKhau.errors.minlength">
+                        * Mật khẩu phải có ít nhất 6 kí tự
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="form-group">
+                    <label for="pwd">Họ và tên</label>
+                    <input #hoTen="ngModel" ngModel name="HoTen" required type="text" class="form-control" [pattern]='"^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+                    "ẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềếểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+                    "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$"' />
+                    <div *ngIf="hoTen.errors && (hoTen.touched || hoTen.dirty)">
+                        <div class="alert alert-danger" *ngIf="hoTen.errors.required">
+                            * Vui lòng nhập họ tên
+                          </div>
+                      <div class="alert alert-danger" *ngIf="hoTen.errors.pattern">
+                        *Họ Tên phải là chữ
+                      </div>
+                      
+                    </div>
+                  </div> 
+                  <div class="form-group">
+                    <label for="pwd">Email</label>
+                    <input #email="ngModel" email name="Email" required ngModel class="form-control"  />
+                    <div *ngIf="email.errors && (email.touched || email.dirty)">
+                        <div class="alert alert-danger" *ngIf="email.errors.required">
+                            * Vui lòng nhập Email
+                          </div>
+                      <div class="alert alert-danger" *ngIf="email.errors.email">
+                        *Email không đúng định dạng
+                      </div>
+          
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label name="SoST" for="pwd">Số điện thoại</label>
+                    <input #sodt="ngModel" name="SoDT" ngModel type="text" class="form-control" required [pattern]='"^[0123456789]+$"'/>
+                    <div *ngIf="sodt.errors && (sodt.touched || sodt.dirty)">
+                        <div class="alert alert-danger" *ngIf="sodt.errors.required">
+                            * Vui lòng nhập mật khẩu
+                          </div>
+                      <div class="alert alert-danger" *ngIf="sodt.errors.pattern">
+                        *Mật khẩu phải là số
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <div class="w-100">
+                      <select name="MaLoaiNguoiDung" ngModel>
+                        <option value="KhachHang">Khách Hàng</option>
+                      </select>
+                    </div>
+                  </div> -->
+                  <button type="submit" [disabled]="formDK.invalid" class="btn btntabdn">Đăng ký</button>
+                </form>
+              </div>
+              <div id="menu2" class="container tab-pane fade">
+                <br />
+                <h3 class="text-center pb-4">Lịch sử đặt vé</h3>
+                <div>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Tên phim</th>
+                        <th>Ngày đặt</th>
+                        <th>Giờ đặt</th>
+                        <th>Rạp</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listVeUserDaDat">
+                          <td>{{item.TenPhim}}</td>
+                          <td>{{item.NgayDat | date : 'dd/MM/yyyy'}}</td>
+                          <td>{{item.NgayDat | date : 'HH:mm'}}</td>
+                          <td>{{item.Rap}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div id="menu3" class="container tab-pane fade">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------Lich su dat ve -->
+    <div
+      class="modal fade bd-example-modal-lg1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myLargeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content p-5">
+          <div class="container">
+             
+            <h2 class="text-center">Lịch sử đặt vé</h2>
+            <br />
+            <!-- Tab panes -->
+            <div class="tab-content">
+              
+                <br />
+                
+                <div>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Tên phim</th>
+                        <th>Ngày đặt</th>
+                        <th>Giờ đặt</th>
+                        <th>Rạp</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listVeUserDaDat">
+                          <td>{{item.TenPhim}}</td>
+                          <td>{{item.NgayDat | date : 'dd/MM/yyyy'}}</td>
+                          <td>{{item.NgayDat | date : 'HH:mm'}}</td>
+                          <td>{{item.Rap}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+  </div>
+ </div>
+  <div id="all">
+    <div class="contai">
+      <nav class="navbar navbar-expand-sm">
+        <!-- Brand -->
+        <a class="navbar-brand" routerLink="">
+          <img 
+            src="http://codepassenger.com/html/bigshow/images/template/logo.png"
+          />
+        </a>
+  
+        <!-- Links -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavbar"
+        >
+          <i class="icon-toggle fa fa-align-left"></i>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse py-2" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#film-new">Phim mới</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lich-chieu">Lịch chiếu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#news">Tin tức</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbardrop"
+                data-toggle="dropdown"
+              >
+                Xem gì hôm nay
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Phim mới</a>
+                <a class="dropdown-item" href="#">Phim ưa thích</a>
+                <a class="dropdown-item" href="#">Phim rẻ nhất</a>
+              </div>
+            </li>
+          </ul>
+          <div class="search-head m-3 input-group mb-3 m-auto">
+            <input type="text" class="form-control" placeholder="Search" />
+            <div class="input-group-append">
+              <button class="btn-search btn" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>

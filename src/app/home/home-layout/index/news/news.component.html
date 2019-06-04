@@ -1,0 +1,179 @@
+<div class="container mb-5" id="news">
+    <div class="row title-list py-4">
+      <div class="co mr-3 line-content">
+        <div class="line"></div>
+      </div>
+  
+      <div class="co title">
+        <h2>Tin tức phim</h2>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <div class="line2"></div>
+      </div>
+    </div>
+    <div class="">
+      <br />
+      <!-- Nav pills -->
+      <div class="center text-center m-auto">
+        <ul class="nav nav-pills nav-news" role="tablist">
+          <li class="nav-item">
+            <p class="nav-link active" data-toggle="pill" href="#home111"
+              >Tin tức phim</p
+            >
+          </li>
+          <li class="nav-item">
+            <p class="nav-link" data-toggle="pill" href="#menu111">Bình luận phim
+            </p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link" data-toggle="pill" href="#menu112">Khuyến mãi</p>
+          </li>
+        </ul>
+      </div>
+      <br />
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="home111" class="container tab-pane active">
+          <br />
+          <div class="row">
+            <div class="col-md-6 m-auto">
+              <div class="card m-auto">
+                <img
+                  class="img-fluid"
+                  src="https://s3img.vcdn.vn/123phim/2019/02/nhom-nhac-huyen-thoai-the-beatles-bi-xoa-so-trong-trailer-phim-moi-cua-dao-dien-trieu-phu-khu-o-chuot-15502005688824.jpg"
+                  alt="img-news"
+                />
+                <div class="news-title">
+                  <h4>Cua lại vợ bầu phim mới hay nhất</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+                    voluptas?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-auto">
+              <div class="card m-auto">
+                <img
+                  class="img-fluid"
+                  src="https://s3img.vcdn.vn/123phim/2019/02/doanh-thu-captain-marvel-duoc-du-bao-ngang-ngua-wonder-woman-15502047710892.jpg"
+                  alt="img-news"
+                />
+                <div class="news-title">
+                  <h4>Cua lại vợ bầu phim mới hay nhất</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+                    voluptas?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 m-auto">
+              <div class="card">
+                <img
+                  class="img-fluid"
+                  src="https://s3img.vcdn.vn/123phim/2019/02/captain-marvel-doanh-thu-03-3a582f.jpg"
+                  alt="img-news"
+                />
+                <div class="news-title">
+                  <h4>Cua lại vợ bầu phim mới hay nhất</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+                    voluptas?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 m-auto">
+              <div class="card">
+                <img
+                  class="img-fluid"
+                  src="https://s3img.vcdn.vn/123phim/2019/02/alita-bi-bom-tan-luu-lac-dia-cau-cua-ngo-kinh-vuot-mat-o-phong-ve-quoc-te-15504648479697.jpg"
+                  alt="img-news"
+                />
+                <div class="news-title">
+                  <h4>Cua lại vợ bầu phim mới hay nhất</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+                    voluptas?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 m-auto">
+              <div class="card">
+                <img
+                  class="img-fluid"
+                  src="https://s3img.vcdn.vn/123phim/2019/02/5-dien-vien-duoc-don-the-cho-ben-affleck-lam-batman-moi-15504804719276.jpg"
+                  alt="img-news"
+                />
+                <div class="news-title">
+                  <h4>Cua lại vợ bầu phim mới hay nhất</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+                    voluptas?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="menu111" class="container tab-pane fade">
+          <br />
+          <h3>Bình luận phim</h3>
+          <div class="rating">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-sm-6 col-lg-6">
+                  <div class="title py-3">Đánh giá phim hay nhất</div>
+                  <form #formRating="ngForm" (ngSubmit)="ratingStar(formRating)">
+                    <div class="form-group form-hoder">
+                      <input type="text" name="TenDanhGia" #TenDG="ngModel" ngModel class="form-control" placeholder="Nhập vào tên của bạn">
+                    </div>
+                    <!-- Valiation GMAIL COMMENT -->
+                    <div *ngIf="EmailDG.errors && formRating.submitted">
+                      <div *ngIf="EmailDG.errors.required || EmailDG.errors.pattern" class="bg-warning p-1">
+                          * Email không đúng định dạng
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="EmailDanhGia" #EmailDG="ngModel" ngModel required class="form-control" placeholder="Email của bạn ?" [pattern]='"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                      + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"'>
+                    </div>
+                 
+                    <div class="form-group">
+                      <textarea rows="5" name="NoiDung" #NoiDungDG="ngModel" ngModel class="form-control" placeholder="Đánh giá về bộ phim ?"></textarea>
+                    </div>
+                    <div class="saodanhgia">
+                        <input type="radio" name="SaoDanhGia" #SaoDanhGia="ngModel" ngModel value="5" id="s1"><label class="s1" for="s1">☆</label>
+                        <input type="radio" name="SaoDanhGia" #SaoDanhGia="ngModel" ngModel value="4" id="s2"><label class="s2" for="s2">☆</label>
+                        <input type="radio" name="SaoDanhGia" #SaoDanhGia="ngModel" ngModel value="3" id="s3"><label class="s3" for="s3">☆</label>
+                        <input type="radio" name="SaoDanhGia" #SaoDanhGia="ngModel" ngModel value="2" id="s4"><label class="s4" for="s4">☆</label>
+                        <input type="radio" name="SaoDanhGia" #SaoDanhGia="ngModel" ngModel value="1" id="s5"><label class="s5" for="s5">☆</label>
+                      </div>
+                      <button type="submit" class="btn btn_danhgia">Gửi đánh giá</button>
+                  </form>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                  <div class="boxscroll">
+                      <app-comment-phim *ngFor="let item of commentArr" [itemComment]="item"></app-comment-phim>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="menu112" class="container tab-pane fade">
+          <br />
+          <h3>Menu 2</h3>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Nav pills -->
+  </div>
+  

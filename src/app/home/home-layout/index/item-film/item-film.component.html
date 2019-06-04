@@ -1,0 +1,26 @@
+
+    <div class="cardd text-center m-auto">
+      <div class="overlay"></div>
+      <img onerror="this.onerror===null; this.src='https://pngimage.net/wp-content/uploads/2018/06/no-image-available-png-3.png'"
+        [src]="itemfilm.HinhAnh" 
+        alt=""
+      />
+    
+      <div class="title-card">
+        <h4>{{itemfilm.TenPhim}}</h4>
+        <p>
+        </p>
+      </div>
+      <div class="tag-title">
+        <div class="img-play">
+          <a class="venobox" data-autoplay="true" data-vbtype="video" [href]=[itemfilm.Trailer]><i class="fas fa-play-circle"></i></a>
+        </div>
+        <div class="date">{{itemfilm.NgayKhoiChieu | date : "dd/MM/y"}}
+          
+        </div>
+        <div class="time">{{itemfilm.NgayKhoiChieu | date : "h:mm:ss a"}}</div>
+      </div>
+      <div class="btn-bookve">
+        <p [queryParams]="{maphim: itemfilm.MaPhim, manhom: itemfilm.MaNhom}" routerLink="/chitiet-film" class="btn btn-light">Đặt vé</p>
+      </div>
+    </div>

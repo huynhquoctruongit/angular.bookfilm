@@ -1,0 +1,42 @@
+/* #333 */
+
+.all
+{
+  background: #060F19;
+}
+.line
+{
+  width: 3px;
+  height: 80px;
+  background: #eb1436;
+}
+.line2
+{
+  transition:all 1s;
+  float: right;
+  background: #eb1436;
+  width: 0px;
+  height: 1px;
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -ms-transition:all 1s;
+  -o-transition:all 1s;
+}
+.title-list:hover .line2
+{
+  width: 150px;
+}
+
+.list-row
+{
+  margin: auto;
+  width: 100%;
+  justify-content: space-between;
+
+}
+.owl-carousel .owl-stage-outer {
+
+  height: 412px!important;
+  padding-top: 35px!important;
+}
+

@@ -1,0 +1,217 @@
+.line
+{
+  width: 3px;
+  height: 80px;
+  background: #eb1436;
+}
+.line2
+{
+  transition:all 1s;
+  float: right;
+  background: #eb1436;
+  width: 0px;
+  height: 1px;
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -ms-transition:all 1s;
+  -o-transition:all 1s;
+}
+.title-list:hover .line2
+{
+  width: 150px;
+}
+.title
+{
+  color: #060F19;
+}
+.card
+{
+    border:none;
+
+}
+img
+{
+  margin-bottom: 15px;
+}
+.center
+{
+  width: 100%;
+}
+.nav-news
+{
+  width: 30%;
+  margin: auto!important;
+}
+.nav-item .active
+{
+  background: #eb1436;
+}
+.nav-item
+{
+  cursor: pointer;
+}
+.nav-link
+{
+  color: #eb1436;
+}
+
+
+
+
+/*  */
+.rating {
+  
+  font-family: 'Roboto', sans-serif;
+}
+
+.rating .title {
+  color: black;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.rating .form-group .form-control {
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+
+}
+.form-control {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+/* SAO DANH GIA */
+/* .rating .saodanhgia {
+  margin-top: 25px;
+  direction: rtl;
+}
+.rating .saodanhgia i {
+  color: rgb(37, 44, 65);
+  font-size: 26px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.rating .saodanhgia i:hover {
+  color: orange;
+}
+.rating .saodanhgia .s1:hover ~ i {
+  color: orange;
+}
+.rating .saodanhgia .s2:hover ~ i {
+  color: orange;
+}
+.rating .saodanhgia .s3:hover ~ i {
+  color: orange;
+}
+.rating .saodanhgia .s4:hover ~ i {
+  color: orange;
+}
+.rating .saodanhgia .s5:hover ~ i {
+  color: orange;
+} */
+.btn_danhgia {
+  background: orange;
+  color: white;
+  font-weight: 700;
+  margin-top: 20px;
+  padding: 7px 20px;
+}
+.s1,.s2,.s3,.s4,.s5
+{
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+.saodanhgia{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.saodanhgia input{
+  display: none;
+ 
+
+}
+
+.saodanhgia label{
+  display: block;
+  cursor: pointer;
+  widows: 50px;
+  background-color: transparent;
+  margin-left: 3px;
+
+}
+.saodanhgia label:before{
+  content: '';
+  font-family: fontAwesome;
+  position: relative;
+  display: block;
+  font-size: 20px;
+  color:  rgb(37, 44, 65);
+}
+.saodanhgia label:after{
+ 
+  content: '\2605';
+  font-family: fontAwesome;
+  position: absolute;
+  display: block;
+  font-size: 30px;
+  color:   orange;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.saodanhgia label:hover:after,
+.saodanhgia input:hover ~ label:after,
+.saodanhgia input:checked ~ label:after{
+  opacity: 1;
+}
+/* Box scroll */
+.boxscroll {
+  overflow-y: scroll;
+  height: 480px;
+  padding-right: 10px;
+}
+
+/* CUSTOM SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: rgba(37,44,65,.8); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+background:  #eb1436; 
+}
+@media screen and (max-width: 1200px){
+
+}
+@media screen and (max-width: 992px){
+
+}
+@media screen and (max-width: 576px){
+  .boxscroll {
+      margin-top: 50px;
+  }
+}
+

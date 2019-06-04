@@ -1,0 +1,23 @@
+.login-form
+{
+    margin: auto;
+    color: white;
+    padding: 30px;
+    width: 50%;
+    margin:auto;
+    box-shadow: 0 0 15px rgba(0,0,0,.8);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+#home
+{
+    
+    background-image: url(https://thegioithiep.com.vn/wp-content/uploads/2018/09/background-dep-de-ghep-anh-4.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 651px;
+}

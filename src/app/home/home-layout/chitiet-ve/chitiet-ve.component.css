@@ -1,0 +1,167 @@
+
+img.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+}
+  
+  img.circle {
+    height:300px!important;
+    width:200px;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+}
+.tenphim
+{
+  font-size: 20px;
+}
+.mota
+{
+  z-index: 12;
+  font-size:14px;
+}
+@keyframes move{
+  0%{
+      left:41%;
+  }
+
+  50%{
+      left:55%;
+  }
+
+  100%{
+      left: 41%;
+  }
+}
+.stars{
+  animation: move 3s infinite;
+  position: absolute;
+  -webkit-animation: move 3s infinite;
+}
+.txt
+{
+  position: relative;
+  z-index:12;
+  color: #eb1436;
+}
+.fa-star
+{
+  color: #eb1436;
+  z-index: 12;
+  overflow:hidden;
+  font-size: 60px;
+  
+}
+.danhgia
+{
+  z-index: 11;
+  font-size:28px;
+  position: relative;
+  top:13px;
+  
+}
+.all
+{
+  overflow: hidden;
+  position: relative;
+}
+.overlay
+{
+
+  bottom: 0px;
+  /* z-index: ; */
+  position: absolute;
+  height: 40%;
+  width: 1000%;
+  /* background: red; */
+  background-image:
+   linear-gradient(to top, rgba(6,15,25,1), rgba(6,15,25,0.0));
+}
+.btn-danger
+{
+  z-index: 11;
+  position: relative;
+}
+.img-play
+{
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 11;
+  cursor: pointer;
+  top:-50%;
+}
+.img-play i
+{
+  color: #42f532;
+  font-size: 50px;
+}
+.img-play a i:hover
+{
+  color: #4fcf43;
+  font-size: 50px;
+}
+.card-header
+{
+  cursor: pointer;
+}
+.title-lichchieu
+{
+  background: #060F19;
+}
+.line
+{
+  width: 3px;
+  height: 80px;
+  background: #eb1436;
+}
+.line2
+{
+  transition:all 1s;
+  float: right;
+  background: #eb1436;
+  width: 0px;
+  height: 1px;
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -ms-transition:all 1s;
+  -o-transition:all 1s;
+}
+.title-list:hover .line2
+{
+  width: 150px;
+}
+.card
+{
+  border-radius: 27px;
+  -webkit-border-radius: 27px;
+  -moz-border-radius: 27px;
+  -ms-border-radius: 27px;
+  -o-border-radius: 27px;
+}
+.card-header
+{
+  border-bottom: unset;
+}
+.card-link img
+{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card-body
+{
+  border-bottom:1px solid gray;
+}
+.lichchieu-menu
+{
+  width: 70%!important;
+  margin: auto;
+}

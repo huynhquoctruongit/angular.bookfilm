@@ -1,0 +1,30 @@
+.comment {
+    margin-bottom: 30px;
+}
+.comment .name {
+    margin: 0px;
+    color:#060F19;
+    font-weight: 600;
+}
+.comment .name i.fa {
+    color: orange;
+    font-weight: bold;
+}
+.comment .gmail {
+    margin: 0px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.comment .gmail i.fa {
+    margin-right: 5px;
+    color: orange;
+}
+.comment .des {
+   
+    color: #060F19;
+    margin: 10px 0px 10px 20px;
+    background: #bbbaba33;
+    padding: 16px;
+    border-bottom: 2px solid orange;
+    border-radius:20px;
+}

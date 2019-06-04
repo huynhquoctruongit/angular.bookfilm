@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.owl-nav
+{
+    font-size: 30px;
+    text-align: center;
+    color:white!important;
+}
+.owl-prev
+{
+    
+    margin:0px 20px 0px 20px!important;
+}

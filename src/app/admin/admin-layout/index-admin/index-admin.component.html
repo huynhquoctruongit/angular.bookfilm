@@ -1,0 +1,800 @@
+<div class="wrapper">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+      >&times;</a
+    >
+    <!-- 
+        <a  href="#"> <i class="fas icon-nav fa-newspaper px-2"></i> </a>
+        <a href="#"> <i class="fas icon-nav fa-users px-2"></i> </a>
+        <a href="#"> <i class="fas icon-nav fa-trash px-2"></i> </a> -->
+    <ul class="nav pt-4" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#home111"
+          >Home - Dashboard</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu110"> Quản lý phim</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu111">
+          Quản lý người dùng</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu112">
+          Quản lý tin tức</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu113"> Thùng rác</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="main">
+    <div class="header pb-3 m-auto d-block">
+      <div class="row text-white">
+        <div class="col-md-3 text-center p-3">
+          SHOW MOVIE <span class="text-red">|</span> admin
+        </div>
+        <div class="col-md-6 m-auto d-block">
+          <span class="badge badge-success mx-2 text-dark">Online</span>
+          <button routerLink="/" class="btn btn-info mx-2" target="_blank">Xem website</button>
+        </div>
+        <div class="col-md-3 m-auto d-block">
+          <div class="dropdown px-2">
+            <i class="dropbtn fab fa-facebook-messenger"></i>
+            <div class="dropdown-content">
+              <a href="#" class="mess">
+                <i class="fas fa-circle pr-2 icon-read"></i> Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit.
+              </a>
+              <a href="#" class="mess">
+                <i class="far fa-circle pr-2 icon-read"></i>Lorem ipsum dolor
+                sit amet.
+              </a>
+              <a href="#" class="mess">
+                <i class="far fa-circle pr-2 icon-read"></i>Lorem ipsum dolor
+                sit amet.
+              </a>
+            </div>
+          </div>
+          <div class="dropdown pl-2">
+            <i class="fas fa-user-shield mr-2"></i>
+            <span class="hi-admin">Hi. Admin !</span>
+            <div class="dropdown-content text-center">
+              <a href="#" class="mess">
+                <span>Tài khoản</span>
+              </a>
+              <a href="#" class="mess">
+                <span>Thông tin</span>
+              </a>
+              <a href="#" (click)="dangXuat()" class="mess">
+                <span>Đăng xuất</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thanh-title p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 l-left">
+            <span style="font-size:30px;cursor:pointer" (click)="openNav()"
+              >&#9776;
+            </span>
+            <span class="ml-3">Home - Dashboard</span>
+          </div>
+
+          <div class="col-md-6 text-right p-2">
+            <i class="chart-icon fas fa-chart-area mx-2"></i>
+            <i class="chart-icon fas fa-chart-pie mx-2"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div class="container-fluid">
+      <div class="row chart">
+        <!--  -->
+        <div class="container-fluid mb-5" id="news">
+          <!-- Nav pills -->
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="home111" class="tab-pane active">
+              <div class="row">
+                <div class="col-md-12 chart-left">
+                  <canvas id="myChart" width="200" height="60"></canvas>
+                </div>
+              </div>
+            </div>
+            <div id="menu110" class="container tab-pane fade">
+              <br />
+              <h3>Quản lý phim</h3>
+              <div class="">
+                <div class="text-right">
+                  <button
+                    data-toggle="modal"
+                    id="title"
+                    data-target="#myModal"
+                    id="btnThemNguoiDung"
+                    class="title btn btn-info"
+                  >
+                    Thêm phim
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title">Thêm phim</h4>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <form
+                          #frthemPhim="ngForm"
+                          (ngSubmit)="themPhim(frthemPhim.value, imgFile.files)"
+                        >
+                          <div class="form-group">
+                            <label>Mã Phim</label>
+                            <input
+                              name="MaPhim"
+                              ngModel
+                              #maPhim="ngModel"
+                              required
+                              class="form-control "
+                              placeholder="Mã phim"
+                            />
+                            <div
+                              *ngIf="
+                                maPhim.errors &&
+                                (maPhim.touched || maPhim.dirty)
+                              "
+                            >
+                              <div class="alẻt alert-danger">
+                                Vui lòng nhập mã phim
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                                <label>Tên Phim</label>
+                                <input
+                                  name="TenPhim"
+                                  #tenPhim="ngModel"
+                                  ngModel
+                                  required
+                                  class="form-control"
+                                  placeholder="Tên phim"
+                                />
+                                <div
+                                  *ngIf="
+                                    tenPhim.errors &&
+                                    (tenPhim.touched || tenPhim.dirty)
+                                  "
+                                >
+                                  <div
+                                    class="alert alert-danger"
+                                    *ngIf="tenPhim.errors.required"
+                                  >
+                                    Vui lòng nhập tên phim
+                                  </div>
+                                </div>
+                              </div>
+                          <div class="form-group">
+                            <label>Đánh giá (☆)</label>
+                            <input
+                              name="DanhGia"
+                              required
+                              ngModel
+                              #danhGia="ngModel"
+                              class="form-control"
+                              placeholder="Nêu đánh giá"
+                            />
+                            <div
+                              *ngIf="
+                                danhGia.errors &&
+                                (danhGia.touched || danhGia.dirty)
+                              "
+                            >
+                              <div
+                                class="alert alert-danger"
+                                *ngIf="danhGia.errors.required"
+                              >
+                                Vui lòng cho nhận xét
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Hình Ảnh</label>
+                            <input
+                              name="HinhAnh"
+                              type="file"
+                              
+                              #imgFile
+                              required
+                              class="form-control"
+                              placeholder="Hình Ảnh"
+                            />
+                            <div
+                              *ngIf="
+                                hinhAnh.errors &&
+                                (hinhAnh.touched || hinhAnh.dirty)
+                              "
+                            >
+                              <div
+                                class="alert alert-danger"
+                                *ngIf="hinhAnh.errors.required"
+                              >
+                                Vui lòng thêm hình ảnh
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Mô Tả</label>
+                            <input
+                              name="MoTa"
+                              required
+                              ngModel
+                              #moTa="ngModel"
+                              class="form-control"
+                              placeholder="Mô tả"
+                            />
+                            <div
+                              *ngIf="
+                                moTa.errors && (moTa.touched || moTa.dirty)
+                              "
+                            >
+                              <div
+                                class="alert alert-danger"
+                                *ngIf="moTa.errors.required"
+                              >
+                                Bạn Chưa mô tả
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Ngày Khởi Chiếu</label>
+                            <input
+                              name="NgayKhoiChieu"
+                              required
+                              ngModel
+                              #daTe="ngModel"
+                              type="date"
+                              class="form-control"
+                              placeholder="Ngày khởi chiếu"
+                            />
+                            <div
+                              *ngIf="
+                                daTe.errors && (daTe.touched || daTe.dirty)
+                              "
+                            >
+                              <div
+                                class="alert alert-danger"
+                                *ngIf="daTe.errors.required"
+                              >
+                                Vui lòng nhập ngày khởi chiếu
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label>Trailer</label>
+                            <input
+                            class="form-control"
+                              name="Trailer"
+                              #trailer="ngModel"
+                              ngModel
+                              placeholder="Nhập vào trailer phim"
+                            />
+                          </div>
+                          <button class="btn btn-danger" type="submit">
+                            Lưu
+                          </button>
+                        </form>
+                      </div>
+                      <!-- Modal footer -->
+                    </div>
+                  </div>
+                </div>
+                <!-- popup Sua ---------------------------------->
+                <div class="modal fade" id="myModal1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title">Sửa phim</h4>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <form
+                          #frsuaPhim="ngForm"
+                          (ngSubmit)="suaPhim(frsuaPhim)"
+                        >
+                          <div class="form-group">
+                            <label>Mã Phim</label>
+                            <input
+                            type="button"
+                            value="{{getDatatoFormFilm.ma}}"
+                            [(ngModel)]="getDatatoFormFilm.ma"
+                              name="MaPhim"
+                              ngModel
+                              #maPhim="ngModel"
+                              required
+                              class="form-control taikhoannew"
+                              placeholder="Mã phim"
+                            />
+                            
+                          </div>
+                          <div class="form-group">
+                                <label>Tên Phim</label>
+                                <input
+                                [(ngModel)]="getDatatoFormFilm.ten"
+                                  name="TenPhim"
+                                  #tenPhim="ngModel"
+                                  ngModel
+                                  required
+                                  class="form-control"
+                                  placeholder="Tên phim"
+                                />
+                                
+                              </div>
+                          <div class="form-group">
+                            <label>Đánh giá (☆)</label>
+                            <input
+                            [(ngModel)]="getDatatoFormFilm.dg"
+                              name="DanhGia"
+                              required
+                              ngModel
+                              #danhGia="ngModel"
+                              class="form-control"
+                              placeholder="Nêu đánh giá"
+                            />
+                            
+                          </div>
+                          <div class="form-group">
+                            <label>Hình Ảnh</label>
+                            <input
+                            [(ngModel)]="getDatatoFormFilm.ha"
+                              name="HinhAnh"
+                              type="url"
+                              ngModel
+                              #hinhAnh="ngModel"
+                              required
+                              class="form-control"
+                              placeholder="Hình Ảnh"
+                            />
+                            
+                          </div>
+
+                          <div class="form-group">
+                            <label>Mô Tả</label>
+                            <input
+                            [(ngModel)]="getDatatoFormFilm.mt"
+                              name="MoTa"
+                              required
+                              ngModel
+                              #moTa="ngModel"
+                              class="form-control"
+                              placeholder="Mô tả"
+                            />
+                           
+                          </div>
+                          <div class="form-group">
+                            <label>Ngày Khởi Chiếu</label>
+                            <input
+                            [(ngModel)]="getDatatoFormFilm.ngaykc"
+                              name="NgayKhoiChieu"
+                              required
+                              ngModel
+                              #daTe="ngModel"
+                              type="date"
+                              class="form-control"
+                              placeholder="Ngày khởi chiếu"
+                            />
+                            
+                          </div>
+                         
+                          <div class="form-group">
+                            <label>Trailer</label>
+                            <input
+                            [(ngModel)]="getDatatoFormFilm.trailer"
+                              name="Trailer"
+                              #trailer="ngModel"
+                              ngModel
+                              placeholder="Nhập vào trailer phim"
+                              class="form-control"
+                            />
+                          </div>
+                          <button class="btn btn-danger" type="submit">
+                            Lưu
+                          </button>
+                        </form>
+                      </div>
+                      <!-- Modal footer -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-light table-striped">
+                <thead>
+                  <tr>
+                    <th>Ảnh phim</th>
+                    <th>Tên phim</th>
+                    <th>Đánh giá</th>
+                    <th>Mã phim</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listPhim">
+                    <td><img width="50" [src]="item.HinhAnh" onerror="this.onerror===null; this.src='https://pngimage.net/wp-content/uploads/2018/06/no-image-available-png-3.png'"/></td>
+                    <td>{{ item.TenPhim }}</td>
+                    <td>{{ item.DanhGia }} <span class="ngoisao">☆</span></td>
+                    <td>
+                      <span class="badge badge-success mx-2 text-dark">{{
+                        item.MaPhim
+                      }}</span>
+                    </td>
+                    <td>
+                      <button
+                      [queryParams]="{ma: item.MaPhim, ten: item.TenPhim, mt: item.MoTa, ha: item.HinhAnh, dg: item.DanhGia, ngaykc: item.NgayKhoiChieu, trailer: item.Trailer}"
+                      routerLink="/index-admin"
+                        data-toggle="modal"
+                        data-target="#myModal1"
+                        class="btn btn-success mr-1"
+                      >
+                        Sửa
+                      </button>
+                      <button
+                        (click)="xoaPhim(item.MaPhim)"
+                        class="btn btn-danger"
+                      >
+                        Xóa
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="menu111" class="container tab-pane fade">
+              <!-- ---------------popup User -->
+
+              <div class="modal fade" id="myModal2">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Thêm User</h4>
+                      <button type="button" class="close" data-dismiss="modal">
+                        Close
+                      </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form
+                        #frthemUser="ngForm"
+                        (ngSubmit)="themUser(frthemUser)"
+                      >
+                        <div class="form-group">
+                          <label>Tài Khoản</label>
+                          <input
+                            name="TaiKhoan"
+                            type="text"
+                            ngModel
+                            #taiKhoan="ngModel"
+                            required
+                            class="form-control"
+                            placeholder="Nhập tài khoản"
+                          />
+                          <div
+                            *ngIf="
+                              taiKhoan.errors &&
+                              (taiKhoan.touched || taiKhoan.dirty)
+                            "
+                          >
+                            <div
+                              class="alert a+lert-danger"
+                              *ngIf="taiKhoan.errors.required"
+                            >
+                              Vui lòng nhập tài khoản
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Mật khẩu</label>
+                          <input
+                            name="MatKhau"
+                            type="password"
+                            ngModel
+                            #matKhau="ngModel"
+                            required
+                            class="form-control"
+                            placeholder="Nhập mật khẩu"
+                          />
+                          <div
+                            *ngIf="
+                              matKhau.errors &&
+                              (matKhau.touched || matKhau.dirty)
+                            "
+                          >
+                            <div
+                              class="alert a+lert-danger"
+                              *ngIf="matKhau.errors.required"
+                            >
+                              Vui lòng nhập mật khẩu
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Họ tên</label>
+                          <input
+                            name="HoTen"
+                            ngModel
+                            #hoTen="ngModel"
+                            required
+                            class="form-control"
+                            placeholder="Nhập họ tên"
+                          />
+                          <div
+                            *ngIf="
+                              hoTen.errors && (hoTen.touched || hoTen.dirty)
+                            "
+                          >
+                            <div class="alẻt alert-danger">
+                              Vui lòng nhập họ tên
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>SDT</label>
+                          <input
+                            name="SoDT"
+                            required
+                            ngModel
+                            #SDT="ngModel"
+                            class="form-control"
+                            placeholder="Nhập số điện thoại"
+                          />
+                          <div *ngIf="SDT.errors && (SDT.touched || SDT.dirty)">
+                            <div
+                              class="alert alert-danger"
+                              *ngIf="SDT.errors.required"
+                            >
+                              Bạn chưa nhập số điện thoại
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input
+                            name="Email"
+                            required
+                            ngModel
+                            #Email="ngModel"
+                            type="text"
+                            class="form-control"
+                            placeholder="Nhập email"
+                          />
+                          <div
+                            *ngIf="
+                              Email.errors && (Email.touched || Email.dirty)
+                            "
+                          >
+                            <div
+                              class="alert alert-danger"
+                              *ngIf="Email.errors.required"
+                            >
+                              Bạn chưa nhập email
+                            </div>
+                          </div>
+                        </div>
+
+                        <button class="btn btn-danger" type="submit">
+                          Lưu
+                        </button>
+                      </form>
+                    </div>
+                    <!-- Modal footer -->
+                  </div>
+                </div>
+              </div>
+              <!-- popup Sua ---------------------------------->
+              <div class="modal fade" id="myModal3">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Sửa User</h4>
+                      <button type="button" class="close" data-dismiss="modal">
+                        Close
+                      </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form #frsuaUser="ngForm" (ngSubmit)="suaUser(frsuaUser)">
+                        <div class="form-group">
+                          <label>Tài Khoản</label>
+                          <input 
+                            
+                            value="getDatatoForm.tk"
+                            [(ngModel)]="getDatatoForm.tk"
+                            name="TaiKhoan"
+                            type="button"
+                            ngModel
+                            #taiKhoan="ngModel"
+                            required
+                            class="form-control taikhoannew"
+                            placeholder="Nhập tài khoản"
+                          />
+                         
+                        </div>
+                        <div class="form-group">
+                          <label>Mật khẩu</label>
+                          <input
+                          [(ngModel)]="getDatatoForm.mk"
+                            name="MatKhau"
+                            type="password"
+                            ngModel
+                            #matKhau="ngModel"
+                            required
+                            class="form-control"
+                            placeholder="Nhập mật khẩu"
+                          />
+                          
+                        </div>
+                        <div class="form-group">
+                          <label>Họ tên</label>
+                          <input
+                          [(ngModel)]="getDatatoForm.ten"
+                            name="HoTen"
+                            ngModel
+                            #hoTen="ngModel"
+                            required
+                            class="form-control"
+                            placeholder="Nhập họ tên"
+                          />
+                          
+                        </div>
+                        <div class="form-group">
+                          <label>SDT</label>
+                          <input
+                          [(ngModel)]="getDatatoForm.dt"
+                            name="SoDT"
+                            required
+                            ngModel
+                            #SDT="ngModel"
+                            class="form-control"
+                            placeholder="Nhập số điện thoại"
+                          />
+                         
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input
+                          [(ngModel)]="getDatatoForm.em"
+                            name="Email"
+                            required
+                            ngModel
+                            #Email="ngModel"
+                            type="text"
+                            class="form-control"
+                            placeholder="Nhập email"
+                          />
+                          <div
+                            *ngIf="
+                              Email.errors && (Email.touched || Email.dirty)
+                            "
+                          >
+                            <div
+                              class="alert alert-danger"
+                              *ngIf="Email.errors.required"
+                            >
+                              Bạn chưa nhập email
+                            </div>
+                          </div>
+                        </div>
+
+                        <button class="btn btn-danger" type="submit">
+                          Lưu
+                        </button>
+                      </form>
+                    </div>
+                    <!-- Modal footer -->
+                  </div>
+                </div>
+              </div>
+
+              <!--  -->
+              <br />
+              <h3>Danh sách User</h3>
+              <div class="text-right">
+                <button
+                  data-toggle="modal"
+                  id="title"
+                  data-target="#myModal2"
+                  id="btnThemNguoiDung"
+                  class="title btn btn-info"
+                >
+                  Thêm User
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <table class="table table-light table-striped">
+                <thead>
+                  <tr>
+                    <th>Tài khoản</th>
+                    <th>Mật khẩu</th>
+                    <th>Họ tên</th>
+                    <th>SDT</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listUser">
+                    <td>{{ item.TaiKhoan }}</td>
+                    <td>{{ item.MatKhau }}</td>
+                    <td>{{ item.HoTen }}</td>
+                    <td>{{ item.SoDT }}</td>
+                    <td>{{ item.Email }}</td>
+                    <td>
+                      <button
+                      [queryParams]="{tk: item.TaiKhoan, mk:item.MatKhau, ten:item.HoTen, dt: item.SoDT, em: item.Email}" routerLink="/index-admin"
+                        data-toggle="modal"
+                        data-target="#myModal3"
+                        class="btn btn-success mr-1">
+                        Sửa
+                      </button>
+                      <button
+                     
+                        (click)="xoaUser(item.TaiKhoan)"
+                        class="btn btn-danger"
+                      >
+                        Xóa
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="menu112" class="container tab-pane fade">
+              <br />
+              <h3>Menu 2</h3>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam.
+              </p>
+            </div>
+            <div id="menu113" class="container tab-pane fade">
+              <br />
+              <h3>Menu 3</h3>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam.
+              </p>
+            </div>
+          </div>
+          <!-- Nav pills -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

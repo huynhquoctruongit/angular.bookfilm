@@ -1,0 +1,54 @@
+.line
+{
+  width: 3px;
+  height: 80px;
+  background: #eb1436;
+}
+.title
+{
+  color: #060F19;
+}
+.line2
+{
+  transition:all 1s;
+  float: right;
+  background: #eb1436;
+  width: 0px;
+  height: 1px;
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -ms-transition:all 1s;
+  -o-transition:all 1s;
+}
+.title-list:hover .line2
+{
+  width: 150px;
+}
+.table
+{
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+.table:hover
+{
+  box-shadow: -2px 1px 44px 5px gray;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+.btn
+{
+  background: #eb1436;
+  color: white;
+}

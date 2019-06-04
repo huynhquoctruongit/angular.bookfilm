@@ -1,0 +1,60 @@
+
+.carousel-item
+{
+  position: relative;
+}
+.overlay
+{
+  bottom: 0px;
+  z-index: 4;
+  position: absolute;
+  height: 60%;
+  width: 1000%;
+  /* background: red; */
+  background-image:
+   linear-gradient(to top, rgba(6,15,25,1), rgba(6,15,25,0.0));
+}
+.carousel-caption
+{
+  margin-bottom: 4%;
+}
+.carousel-indicators li
+{
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.carousel-indicators .active
+{
+  background-color: #eb1436!important;
+}
+.h3-title
+{
+  font-size: 50px;
+}
+.title-banner
+{
+  color: #eb1436;
+}
+.fa-play-circle
+{
+ 
+  font-size: 50px;
+  cursor: pointer;
+}
+.carousel-inner:hover .fa-play-circle
+{
+  color: #eb1436;
+}
+.carousel-caption i
+{
+  color:white;
+}
+.carousel-control
+{
+  cursor: pointer;
+}

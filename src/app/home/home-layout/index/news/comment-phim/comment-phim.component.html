@@ -1,0 +1,7 @@
+<div class="comment">
+  <p class="name">{{itemComment.TenDanhGia}} - <i class="fa fa-star"> {{itemComment.SaoDanhGia}}</i></p>
+  <p class="gmail"><i class="fa fa-envelope-o"></i>{{itemComment.EmailDanhGia}}</p>
+  <p class="des">{{itemComment.NoiDung}}</p>
+  <i (click)="like()" class="far fa-thumbs-up mr-2"></i><span id="none" class="mr-4"> {{cmtlike}}</span>
+  <i (click)="dislike()" class="far fa-thumbs-down mr-2"></i> {{cmtdislike}}
+</div>

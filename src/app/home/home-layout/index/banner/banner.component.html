@@ -1,0 +1,26 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner carousel-fade" >
+      <!-- <div class="carousel-item" *ngFor="let item of listFilm ; let index = first" [class.active]="index"> -->
+        <div class="carousel-item" *ngFor="let item of listFilm ; let index = first" [class.active]="index">
+        <img [src]="item.HinhAnh" alt="Los Angeles" width="100%">
+        <div class="overlay"></div>
+        <div class="carousel-caption">
+          <a class="venobox" data-autoplay="true" data-vbtype="video" [href]=[item.TraiLer]><i class="fas fa-play-circle"></i></a>
+          <h3 class="h3-title">{{item.TenPhim}}<span class="title-banner"> MOVIE</span></h3>
+          <p>{{item.ChiTiet}}</p>
+        </div>
+      </div>
+    </div>
+    <p class="carousel-control-prev carousel-control" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </p>
+    <p class="carousel-control-next carousel-control" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </p>
+  </div>
+ 

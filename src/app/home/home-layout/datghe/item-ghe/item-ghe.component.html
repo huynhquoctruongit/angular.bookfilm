@@ -1,0 +1,7 @@
+<!-- <button class="btn btn-danger"></button> -->
+<ng-container *ngIf="!ListGhe.DaDat;else gheDaChon">
+    <button id="item-ve" class="item-ve" [ngClass]="{'btn-danger':status}" (click)="gheDaDat()">{{ListGhe.TenGhe}}</button>
+</ng-container>
+<ng-template #gheDaChon>
+    <button class="btn btn_ghe btn_dachon bg-dark" disabled style="cursor:not-allowed;"></button>
+</ng-template>

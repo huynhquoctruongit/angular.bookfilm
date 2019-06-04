@@ -1,0 +1,229 @@
+.nav-datve
+{
+    padding: 14px;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    z-index:122;
+    position:relative;
+}
+.wrapper
+{
+    overflow: hidden;
+    /* position: relative; */
+}
+.homnay-time
+{
+    font-size: 13px;
+    color: rgb(156, 156, 156);
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.13);
+  }
+  
+  .sidenav h6 {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color:black;
+    cursor: pointer;
+  }
+
+ #thanhtoan-btn
+ {
+   margin: 0px 17px 17px 0px;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+ }
+ .tenghe-info{
+   font-size: 17px;
+  color: rgb(54, 189, 1);
+   
+ }
+
+ .btn-xacnhan
+ {
+   bottom: 10px;
+   right: 0;
+   position: absolute;
+ }
+ .tinhtien
+ {
+   font-size: 25px;
+   color: rgb(54, 189, 1);
+  position: absolute;
+  bottom: 0;
+ }
+.soghe
+{
+  font-size: 20px;
+  color: rgb(54, 189, 1);
+}
+#chonghe-menu
+{
+  border-top: 2px solid red;
+} 
+ .tenphim
+ {
+   color:red;
+   font-size: 20px;
+ }
+  #main {
+    transition: margin-right .5s;
+    -webkit-transition: margin-right .5s;
+    -moz-transition: margin-right .5s;
+    -ms-transition: margin-right .5s;
+    -o-transition: margin-right .5s;
+}
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .screen img
+  {
+    width:90%;
+    margin: auto;
+  }
+  .ghe-ngoi
+  {
+    width: 50%;
+  }
+  .icon-bapnuoc
+  {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .img-phim
+  {
+    position:absolute;
+    z-index:-1;
+  }
+  .ghetrong
+  {
+
+    background: gainsboro;
+  }
+  .ghedaconguoichon
+  {
+    background: gray;
+  }
+  .user-name
+  {
+    color: red;
+  }
+  #thoigiandat
+  {
+    font-size: 30px;
+    color: red;
+  }
+  /* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/* Basic Config
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ul {
+	list-style-type: none;
+	padding-left: 50px;
+	margin: 0;
+}
+
+li {
+	display: block;
+	position: relative;
+	padding: 10px 0px;
+}
+
+h2 {
+	margin: 10px 0;
+	font-weight: 900;
+}
+
+
+/* Card
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.method-tt
+{
+  position: absolute;
+  bottom: 75px;
+}
+.card {
+	display: flex;
+	flex-direction: column;	
+	background: #FDFBFB;
+	width: 300px;
+	padding: 15px 20px;
+	border-radius: 20px;
+	box-shadow: 0 19px 38px rgba(0, 0, 0, 0.13);
+}
+
+
+/* Radio Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type=radio] {
+	position: absolute;
+	visibility: hidden;
+}
+
+label { 
+	cursor: pointer; 
+	font-weight: 400;
+}
+
+.check {
+
+	width: 20px; height: 20px;
+	position: absolute;
+	border-radius: 50%;
+	transition: transform .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Reset */
+input#one ~ .check {
+
+	transform: translate(-50px, -25px);
+	background: #B2D7F5;
+	-webkit-transform: translate(-50px, -25px);
+	-moz-transform: translate(-50px, -25px);
+	-ms-transform: translate(-50px, -25px);
+	-o-transform: translate(-50px, -25px);
+}
+input#two ~ .check {
+
+	transform: translate(-50px, -83px);
+	background: rgb(116, 174, 223);
+	box-shadow: 0 6px 12px rgba(33, 150, 243, 0.35);
+	-webkit-transform: translate(-50px, -83px);
+	-moz-transform: translate(-50px, -83px);
+	-ms-transform: translate(-50px, -83px);
+	-o-transform: translate(-50px, -83px);
+}
+
+/* Radio Input #1 */
+input#one:checked ~ .check { transform: translate(-50px, 33px); }
+
+/* Radio Input #2  */
+input#two:checked ~ .check { transform: translate(-50px, -25px); }
+

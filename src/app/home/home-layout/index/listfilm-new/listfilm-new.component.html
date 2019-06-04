@@ -1,0 +1,36 @@
+<div class="container m-auto py-5" id="lich-chieu">
+    <div class="row title-list py-4">
+      <div class="co mr-3 line-content">
+        <div class="line"></div>
+      </div>
+  
+      <div class="co title">
+        <h2>Lịch chiếu</h2>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <div class="line2"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table w-100 table-dark">
+          <thead>
+            <tr class="text-center">
+              <th>Phim</th>
+              <th>Giờ chiếu</th>
+              <th>Cụm rạp</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let item of listFilm">
+              <td>{{item.TenPhim}}</td>
+              <td>{{item.NgayKhoiChieu | date : "dd/MM/y -- h:mm:ss a"}}</td>
+              <td>Galaxy Tân Bình</td>
+              <button class="btn">Đặt ngay</button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

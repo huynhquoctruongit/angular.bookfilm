@@ -1,0 +1,14 @@
+.owl-carousel .owl-stage-outer {
+
+    height: 412px!important;
+    padding-top: 35px!important;
+}
+.item
+{
+  margin: 45px;
+}
+.owl-nav
+{
+    font-size: 30px;
+    text-align: center;
+}

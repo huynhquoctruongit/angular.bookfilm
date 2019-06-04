@@ -1,0 +1,65 @@
+
+<form ngNoForm action="https://formspree.io/{{infoUser.Email}}" method="POST">
+  <h4 class="text-center text-danger m-5">Vui lòng kiểm tra thông tin vé và xác nhận gửi Mail</h4>
+  <p class="text-center mb-4">Thông tin vé sẽ được gửi về địa chỉ : <span class="text-info">{{infoUser.Email}}</span></p>
+  <div class="row over mb-5">
+    <div class="col-md-5 mr-4 left-user m-auto">
+      <div class="row">
+        <div class="col-md-6">
+            <p>Email</p>
+            <p>Tài khoản</p>
+            <p>Họ tên</p>
+            <p>Số DT</p>
+        </div>
+        <div class="col-md-6">
+            <p>{{infoUser.Email}}</p>
+            <p>{{infoUser.TaiKhoan}}</p>
+            <p>{{infoUser.HoTen}}</p>
+            <p>{{infoUser.SoDT}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 left-user m-auto">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Tên phim</th>
+            <th>Ngày đặt</th>
+            <th>Giờ đặt</th>
+            <th>Rạp</th>
+            <th>Mã ghê</th>
+            <th>Giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listVeUserDaDat">
+              <td>{{item.TenPhim}}</td>
+              <td>{{item.NgayDat | date : 'dd/MM/yyyy'}}</td>
+              <td>{{item.NgayDat | date : 'HH:mm'}}</td>
+              <td>{{item.Rap}}</td>
+              <td>{{item.MaGhe}}</td>
+              <td>{{item.GiaVe}} VND</td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+    
+  </div>
+  <div class="m-auto text-center">
+      <button class="m-auto text-center mt-5 btn btn-info" target="_blank" type="submit" value="Sende">Gửi đi</button>
+  </div>
+  <input type="text" name="Thông tin email" value="{{infoUser.Email}}"><br>
+  <input type="text" name="Tên tài khoản" value="{{infoUser.TaiKhoan}}"><br>
+  <input type="text" name="Họ Tên" value="{{infoUser.HoTen}}"><br>
+  <input type="text" name="Số điện thoại" value="{{infoUser.SoDT}}"><br>
+  <div *ngFor="let item of listVeUserDaDat">
+    <input type="text" name="Phim đã đặt" value="{{item.TenPhim}}"><br>
+    <input type="text" name="Phim đã đặt" value="{{item.NgayDat | date : 'dd/MM/yyyy'}}"><br>
+    <input type="text" name="Phim đã đặt" value="{{item.NgayDat | date : 'HH:mm'}}"><br>
+    <input type="text" name="Phim đã đặt" value="{{item.Rap}}"><br>
+    <input type="text" name="Phim đã đặt" value=" || "><br>
+  </div>
+  <input type="text" name="Bạn vui lòng giữ email này và đến cụm rạp để tiến hành thanh toán, Xin cảm ơn !" value=" "><br>
+  
+</form>

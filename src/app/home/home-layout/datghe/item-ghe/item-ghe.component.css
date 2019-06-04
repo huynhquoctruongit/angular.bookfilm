@@ -1,0 +1,27 @@
+.item-ve
+{
+    color: rgb(255, 255, 255);
+    margin: 7px;
+    border: none;
+    width:25px;
+    height:25px;
+    font-size: 13px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.btn_dachon
+{
+    margin: 7px;
+    border: none;
+    width:25px;
+    height:25px;
+    font-size: 13px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
